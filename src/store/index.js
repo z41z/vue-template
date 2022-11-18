@@ -2,14 +2,10 @@
  * 状态
  */
 
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+import { createStore } from 'vuex'
+export default createStore({
   state: {
-    test: ''
+    test: 'test'
   },
   getters: {
     test: state => state.test,

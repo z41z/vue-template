@@ -8,7 +8,7 @@ export const PUBLIC_ROUTES = [
     meta: {
       title: '首页'
     },
-    component: () => import('@pages/home/index')
+    component: () => import('@pages/home/index.vue')
   },
   {
     path: '/login',
@@ -16,15 +16,15 @@ export const PUBLIC_ROUTES = [
     meta: {
       title: '登录'
     },
-    component: () => import('@pages/login/index')
+    component: () => import('@pages/login/index.vue')
   },
   // 404
   {
-    path: '*',
+    path: '/:catchAll(.*)',
     name: '404',
     meta: {
       title: '404'
     },
-    component: () => import('@pages/error/404')
+    component: () => import('@pages/error/404.vue')
   }
 ]

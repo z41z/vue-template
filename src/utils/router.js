@@ -1,11 +1,6 @@
 /**
  * 路由
  */
-import Router from 'vue-router'
-import {
-  PUBLIC_ROUTES
-} from '@router/public'
-
 /**
  * 路由递归设置动态路由
  * @param {Object} router 路由实例
@@ -19,15 +14,13 @@ const _setRoutes = (router, routes) => {
       path: component,
       name: title
     } = route
-    router.addRoutes([{
+    router.addRoute([{
       path,
       name,
       meta: {
         title
       },
-      // // Failed to mount component: template or render function not defined.
-      // // https://github.com/vuejs/vue-loader/releases/tag/v13.0.0
-      component: () => import(`../pages${component}`).then(m => m.default)
+      component: () => import(`../pages${component}.vue`)
     }])
     if (route.children && route.children.length) {
       route.children.forEach(item => {
@@ -44,18 +37,7 @@ const _setRoutes = (router, routes) => {
  * @param {Array} routes 路由
  */
 export const setRoutes = (router, routes) => {
-  router.matcher = new Router({
-    mode: router.mode,
-    routes: PUBLIC_ROUTES
-  }).matcher
-
-  if (routes.length) {
-    _setRoutes(router, routes)
-    router.routes = routes
-  } else {
-    // 本地不存在routes时路由空白 App.vue:19
-    router.addRoutes([])
-  }
+  _setRoutes(router, routes)
 }
 
 export const FirstRoute = {

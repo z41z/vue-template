@@ -1,14 +1,10 @@
-/**
- * 路由
- */
-
-import Vue from 'vue'
-import Router from 'vue-router'
-
-Vue.use(Router)
-export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  menus: []
-  // routes:[] 路由写在public.js里面
+import { createRouter, createWebHistory } from 'vue-router'
+import {
+  PUBLIC_ROUTES
+} from '@router/public'
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: PUBLIC_ROUTES
 })
+
+export default router

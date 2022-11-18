@@ -1,22 +1,26 @@
 <template>
-  <div class="pages-home"></div>
+  <main>
+    <RouterLink to="/">Home</RouterLink>
+    <div>
+      <el-button
+        type="primary"
+        @click="$router.push('/login')"
+      >登录</el-button>{{test}}
+    </div>
+    <RouterLink to="/about">About</RouterLink>
+  </main>
 </template>
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
-  data() {
-    return {
-    }
+  computed: {
+    ...mapState(['test'])
   },
   mounted() {
+    this.setTest(new Date())
   },
   methods: {
-  },
-  components: {
-  },
+    ...mapMutations(['setTest'])
+  }
 }
 </script>
-<style lang="less" scoped>
-.pages-home {
-  // background: url('@{static}/images/bg.jpg') no-repeat;
-}
-</style>

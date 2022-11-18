@@ -1,5 +1,9 @@
 <template>
   <div class="pages-login">
+    <el-button
+      type="primary"
+      @click="$router.push('/')"
+    >登录</el-button>
   </div>
 </template>
 <script>

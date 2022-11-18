@@ -1,7 +1,7 @@
 /**
  * 请求
  */
-import { Message } from 'element-ui';
+import { ElMessage as Message } from 'element-plus';
 import axios from 'axios';
 // 创建axios实例
 const $api = axios.create({
