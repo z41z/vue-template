@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+}
+
+figcaption {
+  text-align: center;
+}
+
+#app.app-loading{
+  /* display: none; */
+  visibility: hidden;
+}
+
+#js_spinner {
+  /* background: rgba(0, 0, 0, .6); */
+  background: #192826;
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+#js_spinner .spinner-loading {
+  width: 60px;
+  height: 60px;
+  background-color: #07fffd;
+  -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+  animation: rotateplane 1.2s infinite ease-in-out;
+}
+
+@keyframes rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+#js_spinner .spinner-description {
+  color: #07fffd;
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+#js_spinner .spinner-description::before {
+  content: "正在加载,请等待";
+  animation: loadingText 1.2s infinite ease;
+}
+
+@keyframes loadingText {
+  0% {
+    content: "正在加载,请等待";
+  }
+
+  25% {
+    content: "正在加载,请等待.";
+  }
+
+  50% {
+    content: "正在加载,请等待..";
+  }
+
+  75% {
+    content: "正在加载,请等待...";
+  }
+
+  100% {
+    content: "正在加载,请等待";
+  }
+}

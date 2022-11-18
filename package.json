@@ -1,0 +1,45 @@
+{
+  "name": "pro-init",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --open",
+    "dev": "vue-cli-service serve --open",
+    "dev:prod": "vue-cli-service serve --open --prod",
+    "build": "vue-cli-service build",
+    "build:prod": "vue-cli-service build --prod",
+    "report": "vue-cli-service build"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "element-ui": "2.15.8",
+    "mitt": "^3.0.0",
+    "sp-data": "^1.2.0",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.6.0",
+    "@vue/cli-plugin-pwa": "^3.6.0",
+    "@vue/cli-service": "^3.6.0",
+    "babel-plugin-dynamic-import-webpack": "^1.1.0",
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "core-js": "^2.6.5",
+    "cssnano-preset-advanced": "^4.0.7",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "lodash": "^4.17.21",
+    "progress-bar-webpack-plugin": "^1.12.1",
+    "sass": "~1.32.6",
+    "sass-loader": "^7.1.0",
+    "speed-measure-webpack-plugin": "^1.3.1",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not ie <= 8"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "TENCENT": {
+    "APP_KEY": "20236405",
+    "SECRET": "LspDIbdXSqd1jeimdFGj",
+    "HOST": {
+      "development": "dev.tencent.com",
+      "production": "prod.tencent.com",
+      "test": "127.0.0.1"
+    }
+  }
+}

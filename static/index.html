@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="description" content="">
+  <%= htmlWebpackPlugin.options.head %>
+  <title></title>
+</head>
+
+<body>
+  <div id="app" class="app-loading"></div>
+  <div id="js_spinner">
+    <div class="spinner-loading">
+    </div>
+    <div class="spinner-description"></div>
+  </div>
+  <noscript>请开启浏览器Javascript功能</noscript>
+  <!-- built files will be auto injected -->
+  <%= htmlWebpackPlugin.options.common %>
+  <%= htmlWebpackPlugin.options.superMap %>
+  <%= htmlWebpackPlugin.options.sso %>
+  <script>
+    window.onload = () => {
+      document.querySelector('#app').style.visibility = 'visible'
+      document.querySelector('#js_spinner').style.display = 'none'
+    }
+  </script>
+</body>
+
+</html>

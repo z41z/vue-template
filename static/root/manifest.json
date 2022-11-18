@@ -1,0 +1,16 @@
+{
+  "name": "Vue2-ElementUI-Template",
+  "short_name": "Vue2-Template",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Vue2-ElementUI-Template",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "launcher-icon-1x.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    }
+  ]
+}

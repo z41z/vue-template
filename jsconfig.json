@@ -1,0 +1,25 @@
+{
+  "allowJs": true,
+  "module": "commonjs",
+  "allowSyntheticDefaultImports": true,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@*": [
+        "./src/*"
+      ],
+      "@com*": [
+        "./src/components/*"
+      ],
+      "@components*": [
+        "./src/components/*"
+      ],
+    }
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
