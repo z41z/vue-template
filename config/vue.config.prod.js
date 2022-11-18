@@ -1,6 +1,7 @@
 const configureWebpack = require('./webpack.config')
 let { isProd } = require('./generate')
 const globalVars = require('../src/styles/var')
+const postcss = require('./postcss.config')
 let publicPath = '/v2'
 module.exports = {
   publicPath,
@@ -12,11 +13,7 @@ module.exports = {
   css: {
     // modules: true,
     loaderOptions: {
-      postcss: {
-        config: {
-          path: './config/postcss.config'
-        }
-      },
+      postcss,
       less: {
         globalVars: {
           ...globalVars,

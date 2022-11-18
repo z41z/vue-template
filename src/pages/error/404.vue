@@ -1,19 +1,14 @@
 <template>
   <div class="pages-404">
-    <el-result
-      icon="warning"
-      title="错误提示"
-      subTitle="页面不存在或者未授权的访问"
-      style="margin-top:20vh"
-    >
+    <van-empty description="页面不存在或者未授权的访问">
       <template slot="extra">
-        <el-button
+        <van-button
           type="primary"
           size="small"
           @click="$router.go(-1)"
-        >返回</el-button>
+        >返回</van-button>
       </template>
-    </el-result>
+    </van-empty>
   </div>
 </template>
 <script>

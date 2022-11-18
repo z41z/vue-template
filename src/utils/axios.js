@@ -1,7 +1,7 @@
 /**
  * 请求
  */
-import { Message } from 'element-ui';
+import { Toast } from 'vant';
 import axios from 'axios';
 // 创建axios实例
 const $api = axios.create({
@@ -49,7 +49,7 @@ $api.interceptors.response.use(
     const res = response.data;
     let isSuccess = res.isSuccess
     if (!isSuccess) {
-      Message({ type: 'error', message: res })
+      Toast({ type: 'error', message: res })
       return Promise.reject({
         isSuccess: false,
         data: res
@@ -85,7 +85,7 @@ $api.interceptors.response.use(
     if (message === '未登录') {
       router.push({ path: '/login' })
     } else {
-      Message({ type: 'error', message })
+      Toast({ type: 'error', message })
     }
 
     if (mockData === undefined) {

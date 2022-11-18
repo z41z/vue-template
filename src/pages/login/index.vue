@@ -1,5 +1,7 @@
 <template>
   <div class="pages-login">
+    登录
+    <van-button type="primary">按钮</van-button>
   </div>
 </template>
 <script>
@@ -45,4 +47,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.pages-login {
+  font-size: 16px;
+}
 </style>

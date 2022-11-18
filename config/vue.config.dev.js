@@ -1,5 +1,6 @@
 const configureWebpack = require('./webpack.config')
 const globalVars = require('../src/styles/var')
+const postcss = require('./postcss.config')
 let publicPath = '/'
 module.exports = {
   assetsDir: 'static',
@@ -14,9 +15,7 @@ module.exports = {
   css: {
     // modules: true,
     loaderOptions: {
-      scss: {
-        additionalData: `@import "~@styles/element-variables.scss";`
-      },
+      postcss,
       less: {
         options: {
           strictMath: false,

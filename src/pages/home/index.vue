@@ -17,6 +17,5 @@ export default {
 </script>
 <style lang="less" scoped>
 .pages-home {
-  // background: url('@{static}/images/bg.jpg') no-repeat;
 }
 </style>

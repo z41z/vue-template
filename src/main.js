@@ -6,11 +6,10 @@ import mitt from 'mitt'
 import Plugins from '@plugins'
 import { CONFIG } from '@config/index'
 import { DATE_FORMAT } from '@utils/format'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css';
-import '@styles/element-ui.scss'
 import '@/globalComponents'// 自动注册全局组件
 import { setStorage, getStorage } from '@utils/storage'
+import Vant from 'vant';
+import 'vant/lib/index.css';
 DATE_FORMAT()
 Vue.config.productionTip = false
 Vue.prototype.CONFIG = CONFIG
@@ -19,7 +18,7 @@ window.mitt = Vue.prototype.mitt
 Vue.prototype.setStorage = setStorage
 Vue.prototype.getStorage = getStorage
 Vue.use(Plugins)
-Vue.use(ElementUI)
+Vue.use(Vant);
 //指令
 import { directives } from '@/directives/index.js'
 window.$log = function(...rest) {
@@ -38,7 +37,10 @@ router.beforeEach((to, from, next) => {
   }
   next()
 })
-
+document.documentElement.style.fontSize = `${(innerWidth / 375) * 37.5}px`
+window.onresize = () => {
+  document.documentElement.style.fontSize = `${(innerWidth / 375) * 37.5}px`
+}
 window._Vue_ = new Vue({
   router,
   store,

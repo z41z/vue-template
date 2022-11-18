@@ -5,6 +5,6 @@
 
 
 export const CONFIG = {
-  SYSTEM_NAME: 'Vue2-Element',
-  SYSTEM_CODE: 'VUE2_TEMPLATE'
+  SYSTEM_NAME: 'Vue2-Vant',
+  SYSTEM_CODE: 'VUE2_Vant'
 }
