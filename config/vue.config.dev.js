@@ -14,6 +14,20 @@ module.exports = {
   css: {
     // modules: true,
     loaderOptions: {
+      postcss: {
+        postcssOptions: {
+          plugins: {
+            autoprefixer: {},
+            cssnano: {
+              preset: [
+                'advanced',
+                { zindex: false } //取消CSS z-index自动计算
+              ]
+            },
+            tailwindcss: { config: './config/tailwind-config.js' },
+          }
+        }
+      },
       scss: {
         additionalData: `@import "~@styles/element-variables.scss";`
       },

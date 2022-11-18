@@ -13,8 +13,17 @@ module.exports = {
     // modules: true,
     loaderOptions: {
       postcss: {
-        config: {
-          path: './config/postcss.config'
+        postcssOptions: {
+          plugins: {
+            autoprefixer: {},
+            cssnano: {
+              preset: [
+                'advanced',
+                { zindex: false } //取消CSS z-index自动计算
+              ]
+            },
+            tailwindcss: { config: './config/tailwind-config.js' },
+          }
         }
       },
       less: {

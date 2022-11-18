@@ -1,5 +1,8 @@
 <template>
   <div class="pages-login">
+    <div class="grid grid-cols-3 gap-4">
+      <div v-for="item in 9">1</div>
+    </div>
   </div>
 </template>
 <script>

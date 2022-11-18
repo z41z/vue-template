@@ -10,6 +10,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 import '@styles/element-ui.scss'
 import '@/globalComponents'// 自动注册全局组件
+import "tailwindcss/tailwind.css"
 import { setStorage, getStorage } from '@utils/storage'
 DATE_FORMAT()
 Vue.config.productionTip = false
