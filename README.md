@@ -1,5 +1,5 @@
 
-### vue2-element
+### Vue3 ElementPlus
 
 - #### 主要框架和库
   - 核心：[Vue@4.x](https://cn.vuejs.org/v2/guide/)
