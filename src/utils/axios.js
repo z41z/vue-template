@@ -25,25 +25,17 @@ import router from '@router'
 $api.interceptors.request.use(config => {
   // 请求进度
   let {
-    search = '',
     method = 'get',
-    data = {},
-    name = ''
-  } = config.options;
-  let { url } = config;
+    data = {}
+  } = config
   let methodRegx = /post|put|patch/ig;
-  let searchStr = search ? ('?' + search) : '';
   let paramsName = methodRegx.test(method.toLowerCase()) ? 'data' : 'params';
-  config.method = method;
-  config.data = null;
   config[paramsName] = data;
-  config.url = url + searchStr;
-  config.name = name;
   if (!config.headers['Content-Type']) {
     config.headers['Content-Type'] = 'application/json;charset=UTF-8';
   }
-  if (localStorage.access_token && !/oauth\/token/.test(url)) {
-    config.headers['authorization'] = `Bearer ${localStorage.access_token}`;
+  if (localStorage.access_token) {
+    config.headers['Authorization'] = `Bearer ${localStorage.access_token}`;
   }
   return config;
 }, error => {
@@ -55,51 +47,59 @@ $api.interceptors.request.use(config => {
 $api.interceptors.response.use(
   response => {
     const res = response.data;
-    if (response.status !== 200 && res.status !== 200) {
-      return Promise.reject(res);
+    let isSuccess = res.isSuccess
+    if (!isSuccess) {
+      Message({ type: 'error', message: res })
+      return Promise.reject({
+        isSuccess: false,
+        data: res
+      });
     } else {
       let { mockData, name } = response.config
       if (mockData === undefined) {
-        return response.data
+        return {
+          isSuccess: true,
+          data: response.data
+        }
       }
       else {
         console.log(`${name}已模拟数据:`, mockData)
         return {
-          code: 200,
+          isSuccess: true,
           data: mockData
         }
       }
     }
   },
   error => {
-    let message = error.message || error.response.data.msg
+    let ERROR_CODE = {
+      ECONNABORTED: '请求断开',
+      ERR_NETWORK: '请求错误',
+      ERR_BAD_REQUEST: '请求错误'
+    }
+    let message = ERROR_CODE[error.code] || error.response.data.msg
     let config = error.config
     let { url = '', method = 'get', headers = {}, name = '', mockData } = config;
     let data = config.data || config.params;
     let href = location.href;
-    if (error.message || error.response.data) {
-      if (error.response.status == 424) {
-        router.push({ path: '/login' })
-      } else {
-        Message({ type: 'error', message: error.response.data.msg })
-      }
+    if (message === '未登录') {
+      router.push({ path: '/login' })
     } else {
-      Message({ type: 'error', message: '网络请求错误' })
+      Message({ type: 'error', message })
     }
 
     if (mockData === undefined) {
-      // if(process.env.NODE_ENV!=='development'){
       console.log(`💔😭😱💔😭😱💔\n⚡name:${name}\n🎫message:${message}\n🌈href:${href}\n🌈url:${url}\n💬data:${JSON.stringify(data)}\n🐱‍👤method:${method}\n🤔headers:${JSON.stringify(headers)}`);
-      // }
       return Promise.reject({
-        code: error.response.status,
-        msg: '❌😭😱💔'
+        isSuccess: false,
+        message
       });
     }
     else {
       console.log(`${name}已模拟数据:`, mockData)
       return {
-        code: 200,
+        isSuccess: true,
+        message: '模拟数据',
         data: mockData
       }
     }

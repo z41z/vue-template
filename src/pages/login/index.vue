@@ -15,11 +15,15 @@ export default {
   },
 
   mounted() {
+    this.login()
   },
   methods: {
     async login() {
       this.isShowLoading = true;
-      await login(dataLogin);
+      await login({
+        username: 'username',
+        paddword: 'password'
+      });
       // 获取菜单权限
       let menuRes = await getUserAuthMenu()
       this.isShowLoading = false
