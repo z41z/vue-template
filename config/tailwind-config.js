@@ -10,9 +10,7 @@ module.exports = {
       '5': '32px',
       '6': '48px',
     },
-    colors: {
-    }
   },
   variants: {},
-  plugins: [],
+  plugins: [], 
 }

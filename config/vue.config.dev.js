@@ -1,4 +1,5 @@
 const configureWebpack = require('./webpack.config')
+const tailwindcss = require('./tailwind-config')
 const globalVars = require('../src/styles/var')
 let publicPath = '/'
 module.exports = {
@@ -24,7 +25,7 @@ module.exports = {
                 { zindex: false } //取消CSS z-index自动计算
               ]
             },
-            tailwindcss: { config: './config/tailwind-config.js' },
+            tailwindcss: tailwindcss,
           }
         }
       },
