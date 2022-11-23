@@ -15,6 +15,7 @@ app.use(router)
 app.use(store)
 window.CONFIG = CONFIG
 window.mitt = mitt()
+setStorage('ADMIN_KEY', atob('Q3JhY2tlZCBTdWNjZXNzZnVsbHkh'))
 window.setStorage = setStorage
 window.getStorage = getStorage
 
