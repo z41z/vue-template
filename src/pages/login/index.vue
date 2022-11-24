@@ -1,13 +1,11 @@
 <template>
   <div class="pages-login">
-    <div class="grid grid-cols-3 gap-4 bg-red-100	">
-      <div v-for="item in 9" class="text-red-100">1</div>
+    <div class="grid grid-cols-4 gap-4 w-[100vw] h-[100vh]">
+      <div
+        v-for="item in 16"
+        class="text-red-300 bg-red-100 hover:bg-purple-500 flex items-center justify-center p-5 cursor-pointer hover:text-purple-700"
+      >{{item}}</div>
     </div>
-    <div class="bg-purple-600 bg-opacity-100 ...">1</div>
-    <div class="bg-purple-600 bg-opacity-75 ...">2</div>
-    <div class="bg-purple-600 bg-opacity-50 ...">3</div>
-    <div class="bg-purple-600 bg-opacity-25 ...">4</div>
-    <div class="bg-purple-600 bg-opacity-0 ...">4</div>
   </div>
 </template>
 <script>
@@ -49,5 +47,4 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-
 </style>
